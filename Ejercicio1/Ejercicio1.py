@@ -4,7 +4,7 @@ import csv
 
 def test():
 
-    objeto = Email.inicializar("choto3","gmail","com","sexo123")
+    objeto = Email.inicializar("hh","gmail","com","123")
     print(objeto.retornaEmail())
 
 
