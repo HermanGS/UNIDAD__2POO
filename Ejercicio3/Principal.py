@@ -43,9 +43,14 @@ def testIngresoRegistro():
     print(objetoRegistro)
 
 
+def testPruebaManejadorLista():
+    ManejadorL = ManejadorLista()
+    ManejadorL.Mostrar()
+
 if __name__ == '__main__':
     print("-------principal-------")
-    testIngresoRegistro()
+
+    testPruebaManejadorLista()
 
 
 
