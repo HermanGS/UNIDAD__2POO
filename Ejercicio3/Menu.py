@@ -5,16 +5,33 @@
 class Menu:
     __nothing : None
 
-    def op1(self):
+    def op1(self,Manejador):
         print("ENTRO AL 1")
+        print("Para cada Variable Dia y hora de menor y mayor valor :")
+        print(">-----------------------------<")
+        Manejador.MayorTemperatura()
+        print(">-----------------------------<")
+        Manejador.MenorTemperatura()
+        print(">-----------------------------<")
+        Manejador.MayorHumedad()
+        print(">-----------------------------<")
+        Manejador.MenorHumedad()
+        print(">-----------------------------<")
+        Manejador.MayorPresion()
+        print(">-----------------------------<")
+        Manejador.MenorPresion()
+        print(">-----------------------------<")
 
-    def op2(self):
+    def op2(self,Manejador):
         print("ENTRO AL 2")
+        Manejador.TemperaturaPromedioMensual()
 
-    def op3(self):
+    def op3(self,Manejador):
         print("ENTRO AL 3")
+        dia = int(input("Ingrese un dia para mostrar todas las variables Metereologicas por DIA INGRESADO : "))
+        Manejador.MostrarPorDia(dia)
 
-    def ElegirOP(self,Lista,op):
+    def ElegirOP(self,Manejador):
         op = 1
         while op != 0 :
             print("\n\n")
@@ -30,9 +47,9 @@ class Menu:
                 op = int(input("Respuesta INCORRECTA, vuelva a ingregsar su opcion  :  "))
                 print("<---------------->")
             if op == 1:
-                self.op1()
+                self.op1(Manejador)
             elif op == 2:
-                self.op2()
+                self.op2(Manejador)
             elif op == 3:
-                self.op3()
+                self.op3(Manejador)
             else: print("______________ Saliendo del Programa ______________")
