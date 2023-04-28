@@ -39,7 +39,7 @@ class Alumno:
         return self.__añocarrera
     
     def __lt__(self,otroAlumno):
-        cadena1 = "" + str(self.__nombre) +" "+str(self.__apellido)
-        cadena2 = "" + str(otroAlumno.retornaNombre()) +" "+str(otroAlumno.retornaApellido)
+        cadena1 = str(self.__añocarrera)+str(self.__nombre)+str(self.__apellido)
+        cadena2 = str(otroAlumno.retornaAñoCarrera())+ str(otroAlumno.retornaNombre())+str(otroAlumno.retornaApellido)
         return cadena1 < cadena2
         

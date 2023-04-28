@@ -53,7 +53,7 @@ class ManejadorAlumnos:
     def AgregarAlumno(self,alumno):
         if self.__cantidad == self.__dimension:
             self.__dimension = self.__dimension + self.__incremento
-            self.__ArregloAlumnos.resize(self.__dimension)
+            self.__ArregloAlumnos.resize(self.__dimension, refcheck=False)
         self.__ArregloAlumnos[self.__cantidad] = alumno
         self.__cantidad = self.__cantidad + 1
         
@@ -101,6 +101,6 @@ class ManejadorAlumnos:
     sobrecargue el operador (<) en la clase que corresponda"""
 
     def ListadoOrdenadoNombreyApellido(self):
-        np.sort(self.__ArregloAlumnos,order = 'nombre')
+        self.__ArregloAlumnos.sort()
         self.MostrarAlumnos()
         

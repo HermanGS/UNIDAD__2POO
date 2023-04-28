@@ -113,18 +113,40 @@ xxxxxxx xxxxxxxxxxxxxxxxxxx xx/xx/xxxx xx.xx x"""
         print(type(nombreMateria))
         
         for i in range(len(self.__ListaMaterias)):
+            bandera = 1
+            #print("Nombre de materia sin replace (" "): ",self.__ListaMaterias[i].retornaNombreMateria().lower())
+            #print("Nombre de materia con replace (" "): ",self.__ListaMaterias[i].retornaNombreMateria().lower().replace(" ",""))
+
             #print("Entro al FOR")
-            #print("Nombre de materia : {}",self.__ListaMaterias[i].retornaNombreMateria(),"Nombre Materia",nombreMateria)
-            if self.__ListaMaterias[i].retornaNombreMateria() == nombreMateria:
+            print("Nombre de materia : ",self.__ListaMaterias[i].retornaNombreMateria().lower().strip(" "),"| Nombre Materia : ",nombreMateria.lower().strip(" "))
+            #print(self.__ListaMaterias[i].retornaNombreMateria().lower().strip(" ") == nombreMateria.lower().strip(" "))
+            if self.__ListaMaterias[i].retornaNombreMateria().lower().strip(" ").replace(" ","") == nombreMateria.lower().strip(" ").replace(" ",""):
                 if self.__ListaMaterias[i].retornaNota() >= 7:
+                    bandera = 2
                     if self.__ListaMaterias[i].retornaAprobacion() == 'P':
+                        bandera = 3
                         dni = self.__ListaMaterias[i].retornaDni()
                         print("dni retornado : ",dni,"y tipo : ",type(dni))
                         Resultado = ManejadorAlumnos.BusquedaAlumnoDni(dni)
                         if type(Resultado) == Alumno:
+                            bandera = 4
                             print("Materias Aprobadas en forma Promocional : ")
                             print("DNI      Apellido y nombre       Fecha       Nota        Año que cursa")
-                            #print(Resultado.__apellido)
                             print("{:10}{:10}{:10}{:10}{:10}{:10}".format(dni,Resultado.retornaApellido(),Resultado.retornaNombre(),self.__ListaMaterias[i].retornaFecha(),self.__ListaMaterias[i].retornaNota(),Resultado.retornaAñoCarrera()))
-                        else: print("No se encontro x2")
-   
+            """            
+                        else: print("El alumno Buscado por DNI no se encontró  ; ",end="")
+                    else : print("La Rendida de la Materia (No es promocional );",end="")
+                else: print("Su nota FINAL es menor a 7 ;",end="")
+            else: 
+                print("Buscando ... (Todavía no encontrado) ")
+            """
+        print("<<<--------------------------->>> Resumen  Final <<<--------------------------->>>")
+        if bandera == 1:
+            print("[No se encontró ninguna Materia ni tampoco ningun alumno en toda la busqueda]")
+        elif bandera == 2:
+            print("[Se encontró la materia, con NOTA >= 7 , pero no era promocional]")
+        elif bandera == 3:
+            print("[Se encontró la materia, con NOTA >= 7 y siendo Promocioanl pero no se encontro el alumno]")
+        elif bandera == 4:
+            print("[Se encontró la materia, con NOTA >= 7 y siendo Promocioanl Con Alumno encontrado]")
+        print("<<<--------------------------->>> Resumen  Final <<<--------------------------->>>")
