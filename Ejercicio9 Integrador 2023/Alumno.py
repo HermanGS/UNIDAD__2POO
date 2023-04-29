@@ -39,7 +39,44 @@ class Alumno:
         return self.__añocarrera
     
     def __lt__(self,otroAlumno):
+        bandera = False
+        if type(self) == type(otroAlumno):
+            cadena1 = str(self.__añocarrera)+str(self.__nombre)+str(self.__apellido)
+            cadena2 = str(otroAlumno.retornaAñoCarrera())+ str(otroAlumno.retornaNombre())+str(otroAlumno.retornaApellido)
+            return cadena1 < cadena2
+        else : print("")
+
+    def __rlt__(self,otroAlumno):
         cadena1 = str(self.__añocarrera)+str(self.__nombre)+str(self.__apellido)
         cadena2 = str(otroAlumno.retornaAñoCarrera())+ str(otroAlumno.retornaNombre())+str(otroAlumno.retornaApellido)
         return cadena1 < cadena2
-        
+    
+    def __le__ (self,otroAlumno):
+        if type(self) == type(otroAlumno):
+            cadena1 = str(self.__añocarrera)+str(self.__nombre)+str(self.__apellido)
+            cadena2 = str(otroAlumno.retornaAñoCarrera())+ str(otroAlumno.retornaNombre())+str(otroAlumno.retornaApellido)
+            return cadena1 <= cadena2
+        else : print("")
+    
+
+    def __ge__(self,otroAlumno):
+        if type(self) == type(otroAlumno): # Los arreglos de numpy no se por qué , pero suelen tener 2 elementos de tipo Int en el comienzo , por lo que hay que establecer este if
+            cadena1 = str(self.__añocarrera)+str(self.__nombre)+str(self.__apellido)
+            cadena2 = str(otroAlumno.retornaAñoCarrera())+ str(otroAlumno.retornaNombre())+str(otroAlumno.retornaApellido)
+            return cadena1 >= cadena2
+        else : print("")
+    
+
+    def __gt__(self,otroAlumno):   # El sort de numpy funciono una vez que se estableció La Sobrecarga de Operadores Lt y Gt , menor que y mayor que .
+        bandera = False  
+        if type(self) == type(otroAlumno): # Los arreglos de numpy no se por qué , pero suelen tener 2 elementos de tipo Int en el comienzo , por lo que hay que establecer este if
+            cadena1 = str(self.__añocarrera)+str(self.__nombre)+str(self.__apellido)
+            cadena2 = str(otroAlumno.retornaAñoCarrera())+ str(otroAlumno.retornaNombre())+str(otroAlumno.retornaApellido)
+            return cadena1 > cadena2
+        else : print("")
+
+    def __rgt__(self,otroAlumno):
+        cadena1 = str(self.__añocarrera)+str(self.__nombre)+str(self.__apellido)
+        cadena2 = str(otroAlumno.retornaAñoCarrera())+ str(otroAlumno.retornaNombre())+str(otroAlumno.retornaApellido)
+        return cadena1 > cadena2
+       

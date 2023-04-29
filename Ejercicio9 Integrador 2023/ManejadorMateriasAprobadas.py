@@ -150,3 +150,24 @@ xxxxxxx xxxxxxxxxxxxxxxxxxx xx/xx/xxxx xx.xx x"""
         elif bandera == 4:
             print("[Se encontró la materia, con NOTA >= 7 y siendo Promocioanl Con Alumno encontrado]")
         print("<<<--------------------------->>> Resumen  Final <<<--------------------------->>>")
+
+    """Informar los datos de el / los alumno/s que NO han rendido ninguna Materia"""
+    def BusquedaMateriaDni(self,dni):
+        i = 0
+        while i < len(self.__ListaMaterias) and self.__ListaMaterias[i].retornaDni() != dni:
+            i = i + 1
+        if i < len(self.__ListaMaterias): # Si se lo encontro : ...
+            return self.__ListaMaterias[i]
+        else: print("")
+    
+    def InformeAlumnosSinRendir(self,ManejadorAlumnos):
+        listaSinRendir = []
+        ArregloAlumnos = ManejadorAlumnos.retornaArregloAlumnos()
+        cantidadAlumnos = ManejadorAlumnos.retornaCantidad()
+        for i in range(cantidadAlumnos):
+            dni = ArregloAlumnos[i].retornaDni()
+            resultado = self.BusquedaMateriaDni(dni)
+            if type(resultado) == MateriaAprobada:
+                pass
+                #print("Si rindio",ArregloAlumnos[i])
+            else: print("Alumno {}  No rindio ninguna materia".format(ArregloAlumnos[i]))

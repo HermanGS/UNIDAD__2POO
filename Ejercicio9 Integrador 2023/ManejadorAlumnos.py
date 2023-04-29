@@ -62,7 +62,10 @@ class ManejadorAlumnos:
             print(self.__ArregloAlumnos[i])
         
     def retornaArregloAlumnos(self):
-        return self.__ArregloAlumnos    
+        return self.__ArregloAlumnos
+
+    def retornaCantidad(self):
+        return self.__cantidad    
     
     
     def testIngreso(self):
@@ -103,4 +106,55 @@ class ManejadorAlumnos:
     def ListadoOrdenadoNombreyApellido(self):
         self.__ArregloAlumnos.sort()
         self.MostrarAlumnos()
+
+    def ListadoOrdenadoNombreyApellido2(self):
+        listaOrdenada = np.sort(self.__ArregloAlumnos)
+        for i in range(self.__cantidad):
+            print(listaOrdenada[i])
+        #self.MostrarAlumnos()
+        print("Arreglo Original :")
+        self.MostrarAlumnos()
+
+# indice menor de la lista : inicio  que es 0
+# indice mayor de la lista : fin que es [ len(lista) -1 ]
+# el Pivote es el primer el elemento (0) , por lo que se compara este primer elemento con todos los elementos de la lista
+# por lo que el puntero izquierdo empieza por el segundo elemento (1) [inicio + 1]
+# por lo que el puntero derecho empieza por el ultimo elemento (fin) = [ len(lista) - 1 ]
+    
+    def Particionado(self,lista,inicio,fin):   # ascendente , de menor a mayor
+        pivote = lista[inicio]
+        izq = inicio + 1
+        der = fin 
+
+        while True:
+
+            while izq <= der and lista[izq] <= pivote:
+                izq = izq + 1 #apuntando al elemento que hay que cambiar (que es mayor que el pibot porque sale del bucle y se queda apuntado)
+
+            while izq <= der and lista[der] >= pivote:
+                der = der - 1 #apuntando al elemento que hay que cambiar (que es menor que el pibote porque sale del bucle y se queda apuntado)
+
+            if der < izq: # si todo está bien ordenado
+                break
+            else : 
+                lista[izq] , lista[der] = lista[der] , lista[izq] # no está todo ordenado a derecha y a izquierda , por lo tanto se intercambian valores los punteros izq y der
+        lista[inicio] , lista[der] = lista[der] , lista[inicio]
+        return der
+        
+    def quicksort(self,lista,inicio,fin):
+        if inicio < fin:
+            
+            pivote = self.Particionado(lista,inicio,fin)
+            self.quicksort(lista,inicio,pivote-1)
+            self.quicksort(lista,pivote+1,fin)
+
+    
+
+    def ListadoOrdenadoNombreyApellido3(self):
+        print("Arreglo Original Antes : ")
+        self.MostrarAlumnos()
+        self.quicksort(self.__ArregloAlumnos,0,self.__cantidad-1)
+        print("Arreglo Original Despues : ")
+        self.MostrarAlumnos()
+
         

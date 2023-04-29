@@ -55,15 +55,23 @@ class Menu:
         
     def op3(self,ManejadorAlumnos,ManejadorMaterias):
         print("Entro al 3")
-        ManejadorAlumnos.ListadoOrdenadoNombreyApellido()
+        print("Lista Ordenada de Alumnos : ")
+        ManejadorAlumnos.ListadoOrdenadoNombreyApellido3()
+
+        
+    def op4(self,ManejadorAlumnos,ManejadorMaterias):
+        print("Entro al 4")
+        print("Lista de Alumnos que no Rindieron Ninguna Materia : ")
+        ManejadorMaterias.InformeAlumnosSinRendir(ManejadorAlumnos)
+        
         
         
     def ElegirOP(self,ManejadorAlumnos,ManejadorMaterias):
         op = -1
         while op != 0:
             print("\n\n<--------------------------------------------------------------------------------------------->")
-            print("Elija '1', '2' o '3' segun desee")
-            print("1. Leer por teclado el número de dni de un alumno, e informar su promedio con aplazos y sin aplazos.\n2. Leer por teclado el nombre de una materia, e informar los estudiantes que la aprobaron en forma promocional, con nota mayor o igual que 7.\n3. Obtener un listado de alumnos ordenado: por el año que cursan y alfabéticamente por apellido y nombre (ambos de menor a mayor).")
+            print("Elija '1', '2', '3' o '4' segun desee")
+            print("1. Leer por teclado el número de dni de un alumno, e informar su promedio con aplazos y sin aplazos.\n2. Leer por teclado el nombre de una materia, e informar los estudiantes que la aprobaron en forma promocional, con nota mayor o igual que 7.\n3. Obtener un listado de alumnos ordenado: por el año que cursan y alfabéticamente por apellido y nombre (ambos de menor a mayor).\n4. Informar los datos de el o los Alumnos que no han rendido ninguna materia")
             print("Ingrese 0 (cero) para terminar \n")
             
             op = input("Respuesta : ")
@@ -72,7 +80,7 @@ class Menu:
                 print("Ingrese 0 (cero) para terminar \n")
                 op = input("Respuesta : ")
             op = int(op)
-            while op < 0 or op > 3:
+            while op < 0 or op > 4:
                 print("ERROR - Opcion Incorrecta (Entre 0 y 3)- Vuelva A ingresar la OPCION")
                 print("Ingrese 0 (cero) para terminar \n")
                 op = input("Respuesta : ")
@@ -83,6 +91,8 @@ class Menu:
                 self.op2(ManejadorAlumnos,ManejadorMaterias)
             elif op == 3:
                 self.op3(ManejadorAlumnos,ManejadorMaterias)
+            elif op == 4:
+                self.op4(ManejadorAlumnos,ManejadorMaterias)
             else : print("<---- Saliendo del Programa ---->")
             
         
