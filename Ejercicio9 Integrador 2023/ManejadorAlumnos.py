@@ -87,7 +87,7 @@ class ManejadorAlumnos:
             AlumnoT = Alumno(dni,apellido,nombre,carrera,añocarrera)
             self.AgregarAlumno(AlumnoT)
             print("Agregando Alumno : {} , al Arreglo".format(AlumnoT))
-        print("... Ingreso de Alumnos finalizado ...")
+        print("\n... Ingreso de Alumnos finalizado ...")
         archivo.close()
         
     def BusquedaAlumnoDni(self,dni):

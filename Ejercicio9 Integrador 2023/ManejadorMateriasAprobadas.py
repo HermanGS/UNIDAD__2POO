@@ -72,7 +72,7 @@ class ManejadorMateriasAprobadas:
             MateriaAprobadaT = MateriaAprobada(dni,nombreMateria,fecha,nota,aprobacion)
             self.__ListaMaterias.append(MateriaAprobadaT)
             print("Agregando MateriaAproada  :{} a la Lista".format(MateriaAprobadaT))
-        print("... Ingreso de Materias Aprobadas Finalizado ...")
+        print("\n... Ingreso de Materias Aprobadas Finalizado ...")
         archivo.close()
         
     def PromedioAplazoSinAplazoPorDni(self):

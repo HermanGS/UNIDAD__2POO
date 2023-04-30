@@ -63,7 +63,7 @@ class Menu:
         print("Entro al 4")
         print("Lista de Alumnos que no Rindieron Ninguna Materia : ")
         ManejadorMaterias.InformeAlumnosSinRendir(ManejadorAlumnos)
-        
+
         
         
     def ElegirOP(self,ManejadorAlumnos,ManejadorMaterias):
@@ -84,7 +84,7 @@ class Menu:
                 print("ERROR - Opcion Incorrecta (Entre 0 y 3)- Vuelva A ingresar la OPCION")
                 print("Ingrese 0 (cero) para terminar \n")
                 op = input("Respuesta : ")
-                
+  
             if op == 1:
                 self.op1(ManejadorMaterias)
             elif op == 2:
