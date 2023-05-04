@@ -49,8 +49,24 @@ class Menu:
         print("Entro al 2")
         #ArregloAlumnos = ManejadorAlumnos.retornaArregloAlumnos()
         
-        ManejadorMaterias.PromocionalesPorNombreDeMateria(ManejadorAlumnos)
+        nombreMateria = input("Ingrese un Nombre de Materia para averiguar la informacion de los Alumnos Promocionales : ")
+        #print(type(nombreMateria))
         
+        bandera = ManejadorMaterias.PromocionalesPorNombreDeMateria(ManejadorAlumnos,nombreMateria)
+        
+        print("<<<--------------------------->>> Resumen  Final <<<--------------------------->>>")
+        print("Bandera = ",bandera)
+        if bandera == 0:
+            print("[No se encontró la Materia]")
+        elif bandera == 1:
+            print("[Se encontró la materia, pero con NOTA < 7]")
+        elif bandera == 2:
+            print("[Se encontró la materia, con NOTA >= 7 , pero no era promocional]")
+        elif bandera == 3:
+            print("[Se encontró la materia, con NOTA >= 7 y siendo Promocioanl pero no se encontro el alumno]")
+        elif bandera == 4:
+            print("[Se encontró la materia, con NOTA >= 7 y siendo Promocioanl Con Alumno encontrado]")
+        print("<<<--------------------------->>> Resumen  Final <<<--------------------------->>>")
         
         
     def op3(self,ManejadorAlumnos,ManejadorMaterias):
@@ -94,5 +110,3 @@ class Menu:
             elif op == 4:
                 self.op4(ManejadorAlumnos,ManejadorMaterias)
             else : print("<---- Saliendo del Programa ---->")
-            
-        
