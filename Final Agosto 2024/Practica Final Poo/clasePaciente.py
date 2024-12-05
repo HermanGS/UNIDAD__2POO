@@ -14,11 +14,18 @@ class Paciente:
     @classmethod
     def getValorConsulta(cls):
         return cls.__vConsulta
-     
+    
+    @classmethod
+    def setValorConsulta(cls,x):
+        cls.__vConsulta = x
+        print("valor de consulta cambiado, nuevo valor = ",{cls.__vConsulta})
+
     def calculoSegunPaciente(self):
         pass
 
     def calcularImporte(cls):
+        ##print("valor consulta tipo : ",type(cls.getValorConsulta()))
+        ##print("calculo segun paciente tipo :",type(cls.calculoSegunPaciente()))
         return cls.getValorConsulta() + cls.calculoSegunPaciente()
     
     def __str__(self) -> str:

@@ -11,6 +11,30 @@ if __name__ == '__main__':
     print("importe final Hospitalizado : ",PacienteHospi.calcularImporte())
 
 
+
+
     listaP = listaPacientes()
+    
+    print("Ingrese el nuevo valor de consulta")
+    nuevoValorConsulta = float(input("Nuevo valor : "))
+    Paciente.setValorConsulta(nuevoValorConsulta)
+    #PacienteAmbu.setValorConsulta(nuevoValorConsulta)
+    ##listaP.CambiarValorConsulta(nuevoValorConsulta) NO FUNCA  ¿ TIENE QUE SER USANDO LA CLASE!!!
+    print("\n\n\n")    
+    
+    
     listaP.insertarFinal()
     listaP.mostrar()
+    listaP.importeTotalPacientes()
+    print("\n\n\n")
+
+    try:
+        posicion=int(input("Ingrese una posicion:  "))
+        paciente = listaP.posicionHDP(posicion)
+        if type(paciente) == pacienteA:
+            print("El paciente en esa posicion es un Paciente Ambulatorio")
+        else:
+            print("El paciente en esa posicion es un Paciente Hospitalizado")
+    except IndexError:
+        print(f"La posicion Ingresada ({posicion}) esta fuera de rango...")
+

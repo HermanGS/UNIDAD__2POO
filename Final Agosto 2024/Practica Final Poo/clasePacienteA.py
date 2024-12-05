@@ -15,7 +15,8 @@ class pacienteA(Paciente):
         return self.__obraSocial
     
     def getPlusObraSocial(self):
-        descuento = -15000
+        descuento = -self.getValorConsulta()
+        print("descuento de ",descuento)
         if self.__obraSocial == "Obra Social Provincia":
             descuento = descuento + 5000
         elif self.__obraSocial == "OSDE":
