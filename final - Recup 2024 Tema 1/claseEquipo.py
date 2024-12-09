@@ -40,7 +40,7 @@ class Equipo:
     def mostrarDatosYtarifa(self):
         return self.mostrarDatos() +"\nTarifa de Alquiler :"+ str(self.CalculoTarifaAlquiler()) + "\n"
 
-    # Necesario para poder usar los atributos de una clase PADRE :
+    # Necesario para poder usar los atributos de una clase PADRE : las clases hijas no pueden llamar a atributos de la clase Padre Directamente :
 
     def getTipoCombus(self):
         return self.__tipoCombustible
