@@ -9,8 +9,9 @@ class MaquinariaPesada(Equipo):
         self.__tipoMaquinaria = tipoMaquinaria
         self.__peso = peso
 
+
     def AlquilerSegunEquipo(self):
-        cantDias = self.__cantDiasAlquiler
+        cantDias = self.getCantDiasAlquiler()
         if self.__peso > 10:
             cantDias = cantDias + (cantDias * 0.2)
         return cantDias
@@ -25,4 +26,4 @@ class MaquinariaPesada(Equipo):
         return self.__peso
     
     def mostrarDatos(self):
-        return super().mostrarDatos() + f'{self.getTipoCombus()}, {self.getCapacidadCarga()} ' 
+        return super().mostrarDatos() + f'{self.getTipoCombus()}, {self.getCapacidadCarga()} '

@@ -108,16 +108,17 @@ class gestorEquipos:
         while aux != None:
             if isinstance(aux.getDato(),MaquinariaPesada):
                 if int(aux.getDato().getPeso()) <= capacidad:
-                    cantMaquinarias = cantMaquinarias + 1
+                    cantMaquinarias = cantMaquinarias + 1 + 1
 
             aux = aux.getSig()
         return cantMaquinarias
     
     def MostrarDatosGestor(self):
-        print("Mostrando Datos")
+        print("Mostrando Datos: ")
         aux = self.__cabeza
         while aux != None:
-            aux.getDato().mostrarDatos()
+            
+            print(aux.getDato().mostrarDatosYtarifa())
             aux = aux.getSig()
 
 

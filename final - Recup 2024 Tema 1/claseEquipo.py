@@ -30,13 +30,24 @@ class Equipo:
     def getAnioFabricacion(self):
         return self.__anioFabricacion
     
+    # para mostrar datos y Tarifa :
+
     def mostrarDatos(self):
         c = f'{self.__marca}, {self.__modelo}, {self.__anioFabricacion}, {self.__potencia}, {self.__cantDiasAlquiler}, '
         return c
-    
+    # Las clases hijas no pueden llamar a un método no polimorfico, por eso lo hago así :
+
+    def mostrarDatosYtarifa(self):
+        return self.mostrarDatos() +"\nTarifa de Alquiler :"+ str(self.CalculoTarifaAlquiler()) + "\n"
+
+    # Necesario para poder usar los atributos de una clase PADRE :
+
     def getTipoCombus(self):
         return self.__tipoCombustible
 
     def getCapacidadCarga(self):
         return self.__capacidad_Carga
+    
+    def getCantDiasAlquiler(self):
+        return self.__cantDiasAlquiler
      

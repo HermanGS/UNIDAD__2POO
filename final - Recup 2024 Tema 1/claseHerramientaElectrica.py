@@ -8,7 +8,7 @@ class HerramientaElectrica(Equipo):
     
 
     def AlquilerSegunEquipo(self):
-        cantDias = self.__cantDiasAlquiler
+        cantDias = self.getCantDiasAlquiler()
         if self.__tipoHerramienta == 'bateria':
             cantDias = cantDias + (cantDias * 0.1)
         return cantDias

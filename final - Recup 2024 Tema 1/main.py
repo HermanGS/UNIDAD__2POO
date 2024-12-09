@@ -10,6 +10,9 @@ if __name__ == '__main__':
  
 
     print("\n")
+    gestorE.MostrarDatosGestor()    #parece que es necesario usar los metodos get cuando queremos USAR un Atributo que es de una clase PADRE si o si
+
+    print("\n")
     print("Ingrese una posicion para indicar el tipo de Equipo")
     pos = int(input("ingrese la posicion : "))
     try:
@@ -28,5 +31,3 @@ if __name__ == '__main__':
     capacidad = int(input("ingrese la capacidad de carga : "))
     print(gestorE.MaquinariasConCapacidadMenorA(capacidad))
 
-    print("\n")
-    gestorE.MostrarDatosGestor()
