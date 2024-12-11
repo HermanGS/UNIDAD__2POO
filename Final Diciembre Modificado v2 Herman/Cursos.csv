@@ -1,0 +1,5 @@
+tipo,ID,Nombre,Duracion (horas) / plataforma,Cantidad de Videos / nada
+G,101,Python para Principiantes,20,15,10
+G,103,Java Avanzado,15,12,5
+V,102,Data Science en Vivo,bigbluebutton
+V,104,Machine Learning en Vivo,Zoom
